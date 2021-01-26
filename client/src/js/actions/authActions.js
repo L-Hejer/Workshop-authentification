@@ -25,7 +25,18 @@ export const registerUser = (formData) => async (dispatch) => {
       payload: res.data, // { msg: 'USer registred with success', user, token }
     });
   } catch (error) {
-    console.log(error);
+    console.dir(error);
+
+    const { errors, msg } = error.response.data;
+
+    if (Array.isArray(errors)) {
+      errors.forEach((err) => alert(err.msg));
+    }
+    console.log(errors);
+    if (msg) {
+      alert(msg);
+    }
+
     dispatch({
       type: AUTH_ERRORS,
     });
@@ -44,11 +55,13 @@ export const loginUser = (formData) => async (dispatch) => {
     });
   } catch (error) {
     console.dir(error);
+
     const { errors, msg } = error.response.data;
 
     if (Array.isArray(errors)) {
       errors.forEach((err) => alert(err.msg));
     }
+    console.log(errors);
     if (msg) {
       alert(msg);
     }

@@ -29,9 +29,9 @@ const authReducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         isAuth: true,
+        msg: payload.msg,
         ...payload,
       };
-
     case GET_AUTH_USER:
       return {
         ...state,

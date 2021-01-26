@@ -38,7 +38,6 @@ const RegisterModal = () => {
     setName('');
     setLastName('');
     setPassword('');
-    setModal(false);
   };
 
   return (

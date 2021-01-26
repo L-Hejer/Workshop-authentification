@@ -54,7 +54,7 @@ router.post('/register', registerRules(), validator, async (req, res) => {
       expiresIn: '7 days',
     });
 
-    res.status(200).send({ msg: 'USer registred with success', user, token });
+    res.status(200).send({ msg: 'User registred with success', user, token });
   } catch (error) {
     res.status(500).send({ msg: 'Server Error' });
   }

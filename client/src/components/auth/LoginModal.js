@@ -11,6 +11,7 @@ import {
   Label,
   Input,
   NavLink,
+  Alert,
 } from 'reactstrap';
 
 import { loginUser } from '../../js/actions/authActions';
@@ -32,7 +33,6 @@ const LoginModal = () => {
     history.push('/dashboard');
     setEmail('');
     setPassword('');
-    setModal(false);
   };
 
   return (
