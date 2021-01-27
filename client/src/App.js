@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Spinner } from 'reactstrap';
+
 import { getAuthUser } from './js/actions/authActions';
 
 import AppNavbar from './components/AppNavBar';
@@ -12,7 +14,7 @@ import Dashboard from './components/pages/Dashboard';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.authReducer.isLoading);
+  const { isLoading } = useSelector((state) => state.authReducer);
   const getUser = () => dispatch(getAuthUser());
 
   useEffect(() => {
@@ -20,7 +22,14 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <h1>Spinner....</h1>;
+    return (
+      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <Spinner
+          style={{ width: '3rem', height: '3rem', color: 'secondary' }}
+          type="grow"
+        />
+      </div>
+    );
   }
 
   return (
