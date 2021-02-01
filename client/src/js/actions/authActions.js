@@ -22,7 +22,7 @@ export const registerUser = (formData) => async (dispatch) => {
     const res = await axios.post('/api/auth/register', formData);
     dispatch({
       type: REGISTER_USER,
-      payload: res.data, // { msg: 'USer registred with success', user, token }
+      payload: res.data, // { msg: 'User registred with success', user, token }
     });
   } catch (error) {
     console.dir(error);
